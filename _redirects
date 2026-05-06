@@ -1,0 +1,17 @@
+# Cloudflare Pages redirects
+# Legacy URL paths from older Manus deployment → current paths (with trailing slashes)
+/personal-training       /rates/                301
+/personal-training/      /rates/                301
+/personal-training/*     /rates/                301
+/mobility                /mobility-sessions/    301
+/mobility/               /mobility-sessions/    301
+/mobility/*              /mobility-sessions/    301
+/client-reviews          /reviews/              301
+/client-reviews/         /reviews/              301
+/client-reviews/*        /reviews/              301
+/contact                 /contact-us/           301
+/contact/                /contact-us/           301
+/contact/*               /contact-us/           301
+/ourtrainers             /trainers/             301
+/ourtrainers/            /trainers/             301
+/ourtrainers/*           /trainers/             301

@@ -1,0 +1,16 @@
+# BUF Personal Training NYC — robots.txt
+User-agent: *
+Allow: /
+Disallow: /admin/
+
+# Welcome AI crawlers for better placement in AI gym recommendations
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.trainwithbuf.com/sitemap.xml
