@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "buf-site",
+  "main": "_worker.js",
+  "compatibility_date": "2025-04-01",
+  "assets": {
+    "directory": "./",
+    "binding": "ASSETS"
+  }
+}
