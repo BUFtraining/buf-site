@@ -6,5 +6,8 @@
   "assets": {
     "directory": "./",
     "binding": "ASSETS"
+  },
+  "vars": {
+    "CONTACT_EMAIL": "ben@trainwithbuf.com"
   }
 }
