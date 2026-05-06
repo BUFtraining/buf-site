@@ -4,3 +4,9 @@ wrangler.jsonc
 .wrangler/
 .git
 .assetsignore
+package.json
+package-lock.json
+node_modules/
+build.mjs
+blog/posts/
+blog/template.md
