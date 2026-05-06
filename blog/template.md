@@ -54,3 +54,5 @@ Code block with triple backticks
 3. Commit changes
 4. Wait ~90 seconds — Cloudflare auto-builds and deploys
 5. Post is live at `https://www.trainwithbuf.com/blog/your-slug/`
+
+6. 
