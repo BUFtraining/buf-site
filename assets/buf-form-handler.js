@@ -115,6 +115,9 @@
   const BLOG_HREF = '/blog/';
   const BLOG_LABEL = 'Blog';
   
+  let observerRef = null;
+  let injectionDone = false;
+  
   function findFooterContainer() {
     // Try <footer> tag first (most semantic, likely how Manus marks it)
     const footer = document.querySelector('footer');
@@ -138,39 +141,73 @@
   }
   
   function alreadyHasBlogLink() {
-    return !!document.querySelector('a[data-buf-blog-link="1"]');
+    return !!document.querySelector('[data-buf-blog-link="1"], [data-buf-blog-wrapper="1"]');
+  }
+  
+  function disconnectObserver() {
+    if (observerRef) {
+      observerRef.disconnect();
+      observerRef = null;
+    }
   }
   
   function injectBlogLink() {
     try {
-      if (alreadyHasBlogLink()) return true;
+      if (alreadyHasBlogLink()) {
+        injectionDone = true;
+        return true;
+      }
       
       const refLink = findFooterRefLink();
       if (!refLink) return false;
       
-      // Clone the reference link to inherit styling
-      const blogLink = refLink.cloneNode(true);
-      blogLink.setAttribute('href', BLOG_HREF);
-      blogLink.setAttribute('data-buf-blog-link', '1');
+      // Decide what to clone: the link OR its wrapper.
+      // Manus likely wraps each footer link in a <li> or <div> that provides
+      // spacing. If the parent contains ONLY the link (single child), it's a
+      // wrapper element — clone it so we inherit the spacing/separator structure.
+      const parent = refLink.parentElement;
+      let toClone, insertAfter;
       
-      // Replace the text content (handles nested span structures common in React)
-      const walker = document.createTreeWalker(blogLink, NodeFilter.SHOW_TEXT, null, false);
+      if (parent && parent !== document.body && parent.children.length === 1) {
+        // Parent is a single-child wrapper, clone it
+        toClone = parent;
+        insertAfter = parent;
+      } else {
+        // No wrapper, just clone the link
+        toClone = refLink;
+        insertAfter = refLink;
+      }
+      
+      const cloned = toClone.cloneNode(true);
+      cloned.setAttribute('data-buf-blog-wrapper', '1');
+      
+      // Find the inner <a> tag — it's either the cloned element itself or a descendant
+      const innerA = cloned.tagName === 'A' ? cloned : cloned.querySelector('a');
+      if (!innerA) return false;
+      
+      innerA.setAttribute('href', BLOG_HREF);
+      innerA.setAttribute('data-buf-blog-link', '1');
+      innerA.removeAttribute('onclick');
+      
+      // Replace text content (handles nested span structures)
+      const walker = document.createTreeWalker(innerA, NodeFilter.SHOW_TEXT, null, false);
       let firstTextNode = walker.nextNode();
       if (firstTextNode) {
         firstTextNode.nodeValue = BLOG_LABEL;
         let n;
         while ((n = walker.nextNode())) n.nodeValue = '';
       } else {
-        blogLink.textContent = BLOG_LABEL;
+        innerA.textContent = BLOG_LABEL;
       }
       
-      // Strip any onClick handlers React may have attached
-      blogLink.removeAttribute('onclick');
-      
-      // Insert after the reference link
-      refLink.insertAdjacentElement('afterend', blogLink);
-      
+      insertAfter.insertAdjacentElement('afterend', cloned);
+      injectionDone = true;
       console.log('[BUF] Blog link injected in footer');
+      
+      // Once successfully injected, disconnect the observer after a brief delay
+      // (delay allows React to settle any final renders without us re-injecting)
+      setTimeout(disconnectObserver, 1500);
+      
       return true;
     } catch (err) {
       console.error('[BUF] Failed to inject blog link:', err);
@@ -181,7 +218,7 @@
   // Observe DOM changes (React may re-render on route change) and re-inject
   let injectScheduled = false;
   function scheduleInject() {
-    if (injectScheduled) return;
+    if (injectScheduled || injectionDone) return;
     injectScheduled = true;
     requestAnimationFrame(() => {
       injectScheduled = false;
@@ -190,24 +227,28 @@
   }
   
   function setupObserver() {
-    const observer = new MutationObserver(() => scheduleInject());
-    observer.observe(document.body, { childList: true, subtree: true });
+    if (observerRef) return;
+    
+    // If footer exists, scope observer to footer (much smaller, less overhead)
+    // Otherwise observe body but plan to give up after 10 seconds
+    const footer = findFooterContainer();
+    const target = footer || document.body;
+    
+    observerRef = new MutationObserver(() => scheduleInject());
+    observerRef.observe(target, { childList: true, subtree: true });
+    
+    // Safety: if footer never appears within 10s, stop observing
+    setTimeout(() => {
+      if (!injectionDone) {
+        console.warn('[BUF] Could not find footer to inject Blog link, giving up');
+        disconnectObserver();
+      }
+    }, 10000);
   }
   
   function init() {
     injectBlogLink();
-    setupObserver();
-    // Belt-and-suspenders: try a few times in the first 3 seconds
-    // in case Manus's React mounts late
-    let tries = 0;
-    const interval = setInterval(() => {
-      tries++;
-      if (alreadyHasBlogLink() || tries > 6) {
-        clearInterval(interval);
-      } else {
-        injectBlogLink();
-      }
-    }, 500);
+    if (!injectionDone) setupObserver();
   }
   
   if (document.readyState === 'loading') {
