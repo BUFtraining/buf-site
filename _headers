@@ -1,16 +1,28 @@
 # Cloudflare Pages headers
+# Order matters: more specific rules come first
+
+# Our editable files (short cache, browsers re-check after 5 minutes)
+/assets/buf-form-handler.js
+  Cache-Control: public, max-age=300, must-revalidate
+
+/assets/blog.css
+  Cache-Control: public, max-age=300, must-revalidate
+
+# Manus's content-hashed files (immutable - filename changes when content changes)
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
 /manus-storage/*
   Cache-Control: public, max-age=31536000, immutable
 
+# HTML pages (always revalidate so meta tags/content updates are immediate)
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
 
 /
   Cache-Control: public, max-age=0, must-revalidate
 
+# Security headers for everything
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
