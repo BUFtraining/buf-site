@@ -115,70 +115,62 @@
   const BLOG_HREF = '/blog/';
   const BLOG_LABEL = 'Blog';
   
-  function findNavLinks() {
-    // Find the main nav by looking for the existing link to /rates or /trainers
-    // (Manus's nav has these). If we can find them, we're in the right nav.
-    const candidates = document.querySelectorAll(
-      'header a[href$="/rates"], header a[href$="/rates/"], ' +
-      'header a[href$="/trainers"], header a[href$="/trainers/"], ' +
-      'nav a[href$="/rates"], nav a[href$="/rates/"], ' +
-      'nav a[href$="/trainers"], nav a[href$="/trainers/"]'
+  // Find Manus's nav by looking for links to known main routes ANYWHERE in the DOM,
+  // then walking up to find the common ancestor (which is the nav container).
+  function findReferenceLink() {
+    // Try all four common selectors for the rates/trainers link
+    return document.querySelector(
+      'a[href="/rates"], a[href="/rates/"], ' +
+      'a[href="/trainers"], a[href="/trainers/"], ' +
+      'a[href="/reviews"], a[href="/reviews/"]'
     );
-    if (candidates.length === 0) return null;
-    // Pick the first one's parent <nav> or <ul> or whatever as the container
-    const sample = candidates[0];
-    const container = sample.closest('nav') || sample.closest('ul') || sample.parentElement;
-    if (!container) return null;
-    return container.querySelectorAll('a');
   }
   
   function alreadyHasBlogLink() {
-    return !!document.querySelector('header a[data-buf-blog-link], nav a[data-buf-blog-link]');
+    return !!document.querySelector('a[data-buf-blog-link="1"]');
   }
   
   function injectBlogLink() {
-    if (alreadyHasBlogLink()) return true;
-    
-    const links = findNavLinks();
-    if (!links || links.length < 2) return false;
-    
-    // Prefer to insert AFTER the Reviews link (logical grouping with content pages)
-    let referenceLink = null;
-    for (const a of links) {
-      const href = (a.getAttribute('href') || '').replace(/\/$/, '');
-      if (href.endsWith('/reviews')) {
-        referenceLink = a;
-        break;
+    try {
+      if (alreadyHasBlogLink()) return true;
+      
+      // Get the first available nav-style link to clone
+      // Prefer "Reviews" since it makes a logical insertion point
+      const refLink =
+        document.querySelector('a[href="/reviews"], a[href="/reviews/"]') ||
+        document.querySelector('a[href="/trainers"], a[href="/trainers/"]') ||
+        document.querySelector('a[href="/rates"], a[href="/rates/"]');
+      
+      if (!refLink) return false;
+      
+      // Clone the reference link to inherit styling
+      const blogLink = refLink.cloneNode(true);
+      blogLink.setAttribute('href', BLOG_HREF);
+      blogLink.setAttribute('data-buf-blog-link', '1');
+      
+      // Replace the text content (handles nested span structures common in React)
+      const walker = document.createTreeWalker(blogLink, NodeFilter.SHOW_TEXT, null, false);
+      let firstTextNode = walker.nextNode();
+      if (firstTextNode) {
+        firstTextNode.nodeValue = BLOG_LABEL;
+        let n;
+        while ((n = walker.nextNode())) n.nodeValue = '';
+      } else {
+        blogLink.textContent = BLOG_LABEL;
       }
+      
+      // Strip any onClick handlers React may have attached (defensive copy)
+      blogLink.removeAttribute('onclick');
+      
+      // Insert after the reference link
+      refLink.insertAdjacentElement('afterend', blogLink);
+      
+      console.log('[BUF] Blog link injected');
+      return true;
+    } catch (err) {
+      console.error('[BUF] Failed to inject blog link:', err);
+      return false;
     }
-    
-    // Fallback: insert before the LAST link (often Contact, which is a CTA button)
-    if (!referenceLink) {
-      // Use second-to-last to slot before any CTA button
-      referenceLink = links[Math.max(0, links.length - 2)];
-    }
-    
-    if (!referenceLink) return false;
-    
-    // Clone the reference link to inherit React's classes and styling
-    const blogLink = referenceLink.cloneNode(true);
-    blogLink.setAttribute('href', BLOG_HREF);
-    blogLink.setAttribute('data-buf-blog-link', '1');
-    
-    // Replace the visible text (handles both simple textContent and nested span structures)
-    const walker = document.createTreeWalker(blogLink, NodeFilter.SHOW_TEXT, null, false);
-    let firstTextNode = walker.nextNode();
-    if (firstTextNode) {
-      firstTextNode.nodeValue = BLOG_LABEL;
-      // Empty out any other text nodes so we don't get "ReviewsBlog" etc.
-      let n;
-      while ((n = walker.nextNode())) n.nodeValue = '';
-    } else {
-      blogLink.textContent = BLOG_LABEL;
-    }
-    
-    referenceLink.insertAdjacentElement('afterend', blogLink);
-    return true;
   }
   
   // Observe DOM changes (React may re-render on route change) and re-inject
