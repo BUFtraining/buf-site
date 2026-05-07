@@ -1,6 +1,10 @@
 // BUF form handler — intercepts Manus's contact form (which posts to /api/trpc)
 // and routes it to our /api/contact Pages Function instead.
 // Uses capture-phase event listener to fire BEFORE React's handler.
+//
+// Also handles: injecting a "Blog" link into Manus's main nav, since Manus's
+// React app doesn't include one. Keeps it in place via MutationObserver
+// in case React re-renders the nav.
 (function() {
   'use strict';
   
@@ -103,4 +107,115 @@
       showError(form, submitBtn, originalText);
     }
   }, true);
+
+  // ============================================================
+  // Nav injection — add Blog link to Manus's nav
+  // ============================================================
+  
+  const BLOG_HREF = '/blog/';
+  const BLOG_LABEL = 'Blog';
+  
+  function findNavLinks() {
+    // Find the main nav by looking for the existing link to /rates or /trainers
+    // (Manus's nav has these). If we can find them, we're in the right nav.
+    const candidates = document.querySelectorAll(
+      'header a[href$="/rates"], header a[href$="/rates/"], ' +
+      'header a[href$="/trainers"], header a[href$="/trainers/"], ' +
+      'nav a[href$="/rates"], nav a[href$="/rates/"], ' +
+      'nav a[href$="/trainers"], nav a[href$="/trainers/"]'
+    );
+    if (candidates.length === 0) return null;
+    // Pick the first one's parent <nav> or <ul> or whatever as the container
+    const sample = candidates[0];
+    const container = sample.closest('nav') || sample.closest('ul') || sample.parentElement;
+    if (!container) return null;
+    return container.querySelectorAll('a');
+  }
+  
+  function alreadyHasBlogLink() {
+    return !!document.querySelector('header a[data-buf-blog-link], nav a[data-buf-blog-link]');
+  }
+  
+  function injectBlogLink() {
+    if (alreadyHasBlogLink()) return true;
+    
+    const links = findNavLinks();
+    if (!links || links.length < 2) return false;
+    
+    // Prefer to insert AFTER the Reviews link (logical grouping with content pages)
+    let referenceLink = null;
+    for (const a of links) {
+      const href = (a.getAttribute('href') || '').replace(/\/$/, '');
+      if (href.endsWith('/reviews')) {
+        referenceLink = a;
+        break;
+      }
+    }
+    
+    // Fallback: insert before the LAST link (often Contact, which is a CTA button)
+    if (!referenceLink) {
+      // Use second-to-last to slot before any CTA button
+      referenceLink = links[Math.max(0, links.length - 2)];
+    }
+    
+    if (!referenceLink) return false;
+    
+    // Clone the reference link to inherit React's classes and styling
+    const blogLink = referenceLink.cloneNode(true);
+    blogLink.setAttribute('href', BLOG_HREF);
+    blogLink.setAttribute('data-buf-blog-link', '1');
+    
+    // Replace the visible text (handles both simple textContent and nested span structures)
+    const walker = document.createTreeWalker(blogLink, NodeFilter.SHOW_TEXT, null, false);
+    let firstTextNode = walker.nextNode();
+    if (firstTextNode) {
+      firstTextNode.nodeValue = BLOG_LABEL;
+      // Empty out any other text nodes so we don't get "ReviewsBlog" etc.
+      let n;
+      while ((n = walker.nextNode())) n.nodeValue = '';
+    } else {
+      blogLink.textContent = BLOG_LABEL;
+    }
+    
+    referenceLink.insertAdjacentElement('afterend', blogLink);
+    return true;
+  }
+  
+  // Observe DOM changes (React may re-render on route change) and re-inject
+  let injectScheduled = false;
+  function scheduleInject() {
+    if (injectScheduled) return;
+    injectScheduled = true;
+    requestAnimationFrame(() => {
+      injectScheduled = false;
+      if (!alreadyHasBlogLink()) injectBlogLink();
+    });
+  }
+  
+  function setupObserver() {
+    const observer = new MutationObserver(() => scheduleInject());
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+  
+  function init() {
+    injectBlogLink();
+    setupObserver();
+    // Belt-and-suspenders: try a few times in the first 3 seconds
+    // in case Manus's React mounts late
+    let tries = 0;
+    const interval = setInterval(() => {
+      tries++;
+      if (alreadyHasBlogLink() || tries > 6) {
+        clearInterval(interval);
+      } else {
+        injectBlogLink();
+      }
+    }, 500);
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
