@@ -109,20 +109,31 @@
   }, true);
 
   // ============================================================
-  // Nav injection — add Blog link to Manus's nav
+  // Footer injection — add Blog link to Manus's footer
   // ============================================================
   
   const BLOG_HREF = '/blog/';
   const BLOG_LABEL = 'Blog';
   
-  // Find Manus's nav by looking for links to known main routes ANYWHERE in the DOM,
-  // then walking up to find the common ancestor (which is the nav container).
-  function findReferenceLink() {
-    // Try all four common selectors for the rates/trainers link
-    return document.querySelector(
-      'a[href="/rates"], a[href="/rates/"], ' +
+  function findFooterContainer() {
+    // Try <footer> tag first (most semantic, likely how Manus marks it)
+    const footer = document.querySelector('footer');
+    if (footer) return footer;
+    
+    // Fallback: any element with "footer" in the class name (case-insensitive)
+    return document.querySelector('[class*="footer" i]');
+  }
+  
+  function findFooterRefLink() {
+    const footer = findFooterContainer();
+    if (!footer) return null;
+    
+    // Look for a typical nav link in the footer to clone for styling
+    return footer.querySelector(
+      'a[href="/reviews"], a[href="/reviews/"], ' +
       'a[href="/trainers"], a[href="/trainers/"], ' +
-      'a[href="/reviews"], a[href="/reviews/"]'
+      'a[href="/rates"], a[href="/rates/"], ' +
+      'a[href="/about-us"], a[href="/about-us/"]'
     );
   }
   
@@ -134,13 +145,7 @@
     try {
       if (alreadyHasBlogLink()) return true;
       
-      // Get the first available nav-style link to clone
-      // Prefer "Reviews" since it makes a logical insertion point
-      const refLink =
-        document.querySelector('a[href="/reviews"], a[href="/reviews/"]') ||
-        document.querySelector('a[href="/trainers"], a[href="/trainers/"]') ||
-        document.querySelector('a[href="/rates"], a[href="/rates/"]');
-      
+      const refLink = findFooterRefLink();
       if (!refLink) return false;
       
       // Clone the reference link to inherit styling
@@ -159,13 +164,13 @@
         blogLink.textContent = BLOG_LABEL;
       }
       
-      // Strip any onClick handlers React may have attached (defensive copy)
+      // Strip any onClick handlers React may have attached
       blogLink.removeAttribute('onclick');
       
       // Insert after the reference link
       refLink.insertAdjacentElement('afterend', blogLink);
       
-      console.log('[BUF] Blog link injected');
+      console.log('[BUF] Blog link injected in footer');
       return true;
     } catch (err) {
       console.error('[BUF] Failed to inject blog link:', err);
