@@ -1,5 +1,6 @@
 // BUF form handler — intercepts Manus's contact form
-// and routes it to our /api/contact endpoint
+// and routes it to our /api/contact endpoint.
+// Also fires a Google Ads conversion event on success.
 (function() {
   'use strict';
   
@@ -12,6 +13,18 @@
   }
   
   function showSuccess(form) {
+    // Fire Google Ads conversion event
+    // (gtag is loaded via the Google tag in <head>)
+    if (typeof gtag === 'function') {
+      try {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-715536325/-xwYCIjw56kcEMXvmNUC'
+        });
+      } catch (e) {
+        console.error('Conversion tracking failed:', e);
+      }
+    }
+    
     form.innerHTML = '<div style="padding:2rem;text-align:center;background:#f0f9ff;border-radius:8px;color:#0c4a6e;"><h3 style="margin:0 0 0.5rem;">Message sent!</h3><p style="margin:0;">We\'ll be in touch shortly.</p></div>';
   }
   
