@@ -2,7 +2,6 @@
 
 # Force 301 (permanent) instead of Cloudflare's default 307 (temporary)
 # for trailing-slash redirects on canonical pages
-# This helps Google consolidate URLs cleanly
 /about-us                /about-us/             301
 /contact-us              /contact-us/           301
 /mobility-sessions       /mobility-sessions/    301
@@ -11,10 +10,12 @@
 /reviews                 /reviews/              301
 /trainers                /trainers/             301
 /blog                    /blog/                 301
-# Legacy Wix blog URLs (still in Google's index from old site)
-/affordable-personal-trainer-nyc       /    301
-/affordable-personal-trainer-nyc/      /    301
-# Legacy URL paths from older Manus deployment → current paths (with trailing slashes)
+
+# Legacy Wix blog URLs (Wix used /post/{slug} structure)
+# Catch-all wildcard handles any old Wix post URL → homepage
+/post/*                  /                      301
+
+# Legacy URL paths from older Manus deployment → current paths
 /personal-training       /rates/                301
 /personal-training/      /rates/                301
 /personal-training/*     /rates/                301
