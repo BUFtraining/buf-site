@@ -12,8 +12,8 @@
 /trainers                /trainers/             301
 /blog                    /blog/                 301
 # Legacy Wix blog URLs (still in Google's index from old site)
-/affordable-personal-trainer-nyc       /rates/    301
-/affordable-personal-trainer-nyc/      /rates/    301
+/affordable-personal-trainer-nyc       /    301
+/affordable-personal-trainer-nyc/      /    301
 # Legacy URL paths from older Manus deployment → current paths (with trailing slashes)
 /personal-training       /rates/                301
 /personal-training/      /rates/                301
