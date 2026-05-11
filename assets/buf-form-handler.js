@@ -14,53 +14,50 @@
     return names.includes('email') || names.includes('firstName') || names.includes('phone');
   }
   
-  // Strip `required` attributes and asterisks from BUF contact form
+  // Aggressively strip `required` attributes and asterisks from ANY label/input on page.
+  // React keeps re-rendering and re-adding the asterisks, so we run this on every
+  // animation frame to win the race.
   function deRequireBufForm() {
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-      if (!isBufContactForm(form)) return;
+    // Strip required from ALL inputs/textareas/selects on page (safe — only contact form has required)
+    document.querySelectorAll('input[required], textarea[required], select[required], [aria-required="true"]').forEach(field => {
+      field.removeAttribute('required');
+      field.removeAttribute('aria-required');
+    });
+    
+    // Strip asterisks from any label containing "*" character
+    document.querySelectorAll('label').forEach(label => {
+      // Quick check: if no asterisk in textContent, skip
+      if (!label.textContent || label.textContent.indexOf('*') === -1) return;
       
-      // Strip required attribute from all fields
-      form.querySelectorAll('[required]').forEach(field => {
-        field.removeAttribute('required');
-        field.removeAttribute('aria-required');
+      // Walk all text node descendants
+      const walker = document.createTreeWalker(label, NodeFilter.SHOW_TEXT, null);
+      let node;
+      const toUpdate = [];
+      while (node = walker.nextNode()) {
+        if (node.textContent.indexOf('*') !== -1) toUpdate.push(node);
+      }
+      toUpdate.forEach(n => {
+        n.textContent = n.textContent.replace(/\s*\*+\s*/g, '').trimEnd();
       });
       
-      // Strip asterisks from labels
-      form.querySelectorAll('label').forEach(label => {
-        const walker = document.createTreeWalker(label, NodeFilter.SHOW_TEXT, null);
-        let node;
-        const toUpdate = [];
-        while (node = walker.nextNode()) {
-          if (/\*/.test(node.textContent)) toUpdate.push(node);
-        }
-        toUpdate.forEach(n => {
-          n.textContent = n.textContent.replace(/\s*\*+/g, '').trimEnd();
-        });
-        // Also remove asterisk-only spans
-        label.querySelectorAll('span').forEach(span => {
-          if (span.textContent.trim() === '*') span.remove();
-        });
+      // Also remove asterisk-only spans
+      label.querySelectorAll('span').forEach(span => {
+        if (span.textContent.trim() === '*') span.remove();
       });
     });
   }
   
-  // Run on initial load and watch for React re-renders
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', deRequireBufForm);
-  } else {
+  // Run immediately, then on every animation frame in a tight loop.
+  // This ensures we beat React's re-render cycle no matter what.
+  function scheduleCleanup() {
     deRequireBufForm();
+    requestAnimationFrame(scheduleCleanup);
   }
   
-  // Observe DOM changes (Manus's React may re-render forms)
-  const observer = new MutationObserver(() => deRequireBufForm());
-  // Wait until body exists, then observe child list changes
-  if (document.body) {
-    observer.observe(document.body, { childList: true, subtree: true });
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', scheduleCleanup);
   } else {
-    document.addEventListener('DOMContentLoaded', () => {
-      observer.observe(document.body, { childList: true, subtree: true });
-    });
+    scheduleCleanup();
   }
   
   function showSuccess(form) {
