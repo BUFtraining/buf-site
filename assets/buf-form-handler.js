@@ -1,6 +1,8 @@
 // BUF form handler — intercepts Manus's contact form
 // and routes it to our /api/contact endpoint.
-// Also fires a Google Ads conversion event on success.
+// - Removes all `required` attributes so users can submit any subset of fields
+// - Strips asterisks from labels for visual consistency
+// - Fires a Google Ads conversion event on success
 (function() {
   'use strict';
   
@@ -12,9 +14,57 @@
     return names.includes('email') || names.includes('firstName') || names.includes('phone');
   }
   
+  // Strip `required` attributes and asterisks from BUF contact form
+  function deRequireBufForm() {
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+      if (!isBufContactForm(form)) return;
+      
+      // Strip required attribute from all fields
+      form.querySelectorAll('[required]').forEach(field => {
+        field.removeAttribute('required');
+        field.removeAttribute('aria-required');
+      });
+      
+      // Strip asterisks from labels
+      form.querySelectorAll('label').forEach(label => {
+        const walker = document.createTreeWalker(label, NodeFilter.SHOW_TEXT, null);
+        let node;
+        const toUpdate = [];
+        while (node = walker.nextNode()) {
+          if (/\*/.test(node.textContent)) toUpdate.push(node);
+        }
+        toUpdate.forEach(n => {
+          n.textContent = n.textContent.replace(/\s*\*+/g, '').trimEnd();
+        });
+        // Also remove asterisk-only spans
+        label.querySelectorAll('span').forEach(span => {
+          if (span.textContent.trim() === '*') span.remove();
+        });
+      });
+    });
+  }
+  
+  // Run on initial load and watch for React re-renders
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', deRequireBufForm);
+  } else {
+    deRequireBufForm();
+  }
+  
+  // Observe DOM changes (Manus's React may re-render forms)
+  const observer = new MutationObserver(() => deRequireBufForm());
+  // Wait until body exists, then observe child list changes
+  if (document.body) {
+    observer.observe(document.body, { childList: true, subtree: true });
+  } else {
+    document.addEventListener('DOMContentLoaded', () => {
+      observer.observe(document.body, { childList: true, subtree: true });
+    });
+  }
+  
   function showSuccess(form) {
     // Fire Google Ads conversion event
-    // (gtag is loaded via the Google tag in <head>)
     if (typeof gtag === 'function') {
       try {
         gtag('event', 'conversion', {
