@@ -54,11 +54,17 @@ async function handleContact(request, env, url) {
     return errorResponse(isTrpc, 'Invalid request body', 400);
   }
   
-  // Validate
-  if (!data || !data.firstName || !data.email) {
-    return errorResponse(isTrpc, 'Missing required fields', 400);
+  // Validate — all fields optional, but reject completely empty submissions
+  // and validate email format if email is provided
+  if (!data || typeof data !== 'object') {
+    return errorResponse(isTrpc, 'Invalid request body', 400);
   }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+  const hasAnyContent = ['firstName','lastName','email','phone','message','interestedIn','referral']
+    .some(k => data[k] && String(data[k]).trim() !== '');
+  if (!hasAnyContent) {
+    return errorResponse(isTrpc, 'Please fill out at least one field', 400);
+  }
+  if (data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
     return errorResponse(isTrpc, 'Invalid email address', 400);
   }
   
@@ -66,12 +72,14 @@ async function handleContact(request, env, url) {
   if (Array.isArray(data.interestedIn)) data.interestedIn = data.interestedIn.join(', ');
   
   // Build email
-  const fullName = `${data.firstName} ${data.lastName || ''}`.trim();
-  const subject = `New BUF contact: ${fullName}`;
+  const fullName = `${data.firstName || ''} ${data.lastName || ''}`.trim();
+  const subject = fullName
+    ? `New BUF contact: ${fullName}`
+    : 'New BUF contact (no name provided)';
   
   const lines = [
-    `Name:           ${fullName}`,
-    `Email:          ${data.email}`,
+    `Name:           ${fullName || '(not provided)'}`,
+    `Email:          ${data.email || '(not provided)'}`,
     `Phone:          ${data.phone || '(not provided)'}`,
     `Interested In:  ${data.interestedIn || '(none specified)'}`,
     `How they heard: ${data.referral || '(not provided)'}`,
@@ -84,10 +92,14 @@ async function handleContact(request, env, url) {
     'Submitted via trainwithbuf.com contact form',
   ];
   
+  const emailLinkHtml = data.email
+    ? `<a href="mailto:${encodeURIComponent(data.email)}">${escapeHtml(data.email)}</a>`
+    : '(not provided)';
+  
   const htmlBody = `
     <h2>New contact from BUF website</h2>
-    <p><strong>Name:</strong> ${escapeHtml(fullName)}</p>
-    <p><strong>Email:</strong> <a href="mailto:${encodeURIComponent(data.email)}">${escapeHtml(data.email)}</a></p>
+    <p><strong>Name:</strong> ${escapeHtml(fullName || '(not provided)')}</p>
+    <p><strong>Email:</strong> ${emailLinkHtml}</p>
     <p><strong>Phone:</strong> ${escapeHtml(data.phone || '(not provided)')}</p>
     <p><strong>Interested In:</strong> ${escapeHtml(data.interestedIn || '(none specified)')}</p>
     <p><strong>How they heard:</strong> ${escapeHtml(data.referral || '(not provided)')}</p>
@@ -110,20 +122,23 @@ async function handleContact(request, env, url) {
   const senderEmail = env.SENDER_EMAIL || 'BUF Contact Form <onboarding@resend.dev>';
   
   try {
+    const emailPayload = {
+      from: senderEmail,
+      to: [recipientEmail],
+      subject,
+      text: lines.join('\n'),
+      html: htmlBody,
+    };
+    if (data.email) {
+      emailPayload.reply_to = data.email;
+    }
     const emailResp = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        from: senderEmail,
-        to: [recipientEmail],
-        reply_to: data.email,
-        subject,
-        text: lines.join('\n'),
-        html: htmlBody,
-      }),
+      body: JSON.stringify(emailPayload),
     });
     
     if (!emailResp.ok) {
