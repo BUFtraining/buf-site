@@ -1,9 +1,10 @@
+[2026-05-08-how-much-does-personal-training-cost-nyc.md](https://github.com/user-attachments/files/27810995/2026-05-08-how-much-does-personal-training-cost-nyc.md)
 ---
-title: "How Much Does Personal Training Cost in NYC? A 2026 Pricing Guide"
+title: "Personal Training Cost in NYC: 2026 Pricing Guide"
 slug: how-much-does-personal-training-cost-nyc
 date: 2026-05-08
 category: nyc-fitness
-excerpt: "A transparent breakdown of what personal training actually costs in NYC in 2026 — from the $50 entry-level sessions to the $300/hr celebrity trainers. Plus what you're paying for at each tier, and how to find quality training under $100 a session."
+excerpt: "What personal training actually costs in NYC in 2026: $50 entry-level to $300/hr celebrity rates. Plus how to find quality training under $100."
 author: BUF Personal Training
 ---
 
