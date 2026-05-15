@@ -33,6 +33,24 @@ const CATEGORIES = {
   'mobility':       'Mobility & Recovery',
 };
 
+// Tailored SEO descriptions per category (used in meta description)
+const CATEGORY_DESCRIPTIONS = {
+  'training-tips':  'Practical training advice from BUF in NYC: 12-week programs, beginner mistakes, when to hire a coach, what actually works for adult lifters.',
+  'client-stories': 'Real BUF Personal Training client stories from Midtown Manhattan. Transformations, training journeys, and what worked for NYC clients like you.',
+  'nyc-fitness':    "NYC fitness articles from BUF Personal Training: pricing guides, neighborhood breakdowns, gym comparisons, and what's actually worth your money.",
+  'nutrition':      'Nutrition articles from BUF Personal Training in NYC: practical eating guidance for adults training for fat loss, strength, or just feeling better.',
+  'mobility':       'Mobility and recovery articles from BUF Personal Training in NYC. Joint pain, flexibility, and recovery strategies for busy adult lifters.',
+};
+
+// Tailored SEO titles per category (used in <title>)
+const CATEGORY_TITLES = {
+  'training-tips':  'Strength Training Tips | BUF Personal Training NYC',
+  'client-stories': 'Client Stories | BUF Personal Training NYC',
+  'nyc-fitness':    'NYC Fitness Articles | BUF Personal Training',
+  'nutrition':      'Nutrition for Lifters | BUF Personal Training NYC',
+  'mobility':       'Mobility & Recovery | BUF Personal Training NYC',
+};
+
 function esc(s) {
   return String(s ?? '').replace(/[&<>"']/g, c =>
     ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])
@@ -605,7 +623,7 @@ function renderBlogIndex(posts) {
   const url = `${SITE_URL}/blog/`;
   return head({
     title: `${BLOG_TITLE} | BUF Personal Training NYC`,
-    description: `${BLOG_TAGLINE}. Articles on strength training, mobility, NYC fitness, and the BUF approach to personal training.`,
+    description: `Strength training, mobility, and NYC fitness articles from BUF Personal Training. Practical training advice from NYC's most affordable studio.`,
     canonical: url,
   })
     + NAV
@@ -654,8 +672,8 @@ function renderCategoryIndex(categorySlug, posts) {
   const categoryName = categoryDisplay(categorySlug);
   const url = `${SITE_URL}/blog/category/${categorySlug}/`;
   return head({
-    title: `${categoryName} | BUF Blog`,
-    description: `${categoryName} articles from BUF Personal Training NYC.`,
+    title: CATEGORY_TITLES[categorySlug] || `${categoryName} | BUF Blog`,
+    description: CATEGORY_DESCRIPTIONS[categorySlug] || `${categoryName} articles from BUF Personal Training NYC.`,
     canonical: url,
   })
     + NAV
