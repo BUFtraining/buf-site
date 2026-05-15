@@ -1,9 +1,10 @@
+[2026-05-11-strength-training-for-beginners-nyc (1).md](https://github.com/user-attachments/files/27811009/2026-05-11-strength-training-for-beginners-nyc.1.md)
 ---
-title: "Strength Training for Beginners in NYC: A Realistic 12-Week Plan"
+title: "Strength Training for Beginners: 12-Week NYC Plan"
 slug: strength-training-for-beginners-nyc
 date: 2026-05-11
 category: training-tips
-excerpt: "A no-fluff 12-week guide for adults starting strength training in NYC. The exercises that matter, what to expect week by week, common mistakes that derail beginners, and when hiring a coach is actually worth it."
+excerpt: "A no-fluff 12-week strength training plan for adults in NYC. Exercises that matter, week-by-week expectations, beginner mistakes, when to hire a coach."
 author: BUF Personal Training
 ---
 
