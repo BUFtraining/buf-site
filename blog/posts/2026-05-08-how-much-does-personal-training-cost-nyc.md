@@ -1,4 +1,3 @@
-[2026-05-08-how-much-does-personal-training-cost-nyc.md](https://github.com/user-attachments/files/27811765/2026-05-08-how-much-does-personal-training-cost-nyc.md)
 ---
 title: "Personal Training Cost in NYC: 2026 Pricing Guide"
 slug: how-much-does-personal-training-cost-nyc
