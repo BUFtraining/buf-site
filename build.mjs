@@ -565,9 +565,21 @@ function renderPost(post, allPosts) {
     "mainEntityOfPage": { "@type": "WebPage", "@id": url },
   };
 
-  return head({ title: `${post.title} | BUF Blog`, description, canonical: url, type: 'article' })
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL + "/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${SITE_URL}/blog/` },
+      { "@type": "ListItem", "position": 3, "name": categoryDisplay(post.category), "item": `${SITE_URL}/blog/category/${post.category}/` },
+      { "@type": "ListItem", "position": 4, "name": post.title, "item": url }
+    ]
+  };
+
+  return head({ title: post.seoTitle || `${post.title} | BUF Blog`, description, canonical: url, type: 'article' })
     + NAV
     + `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
+<script type="application/ld+json">${JSON.stringify(breadcrumbSchema)}</script>
 <main class="post-page">
   <div class="wrap">
     <article class="post">
@@ -621,12 +633,44 @@ function renderPost(post, allPosts) {
 
 function renderBlogIndex(posts) {
   const url = `${SITE_URL}/blog/`;
+
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": BLOG_TITLE,
+    "description": BLOG_TAGLINE,
+    "url": url,
+    "publisher": {
+      "@type": "Organization",
+      "name": "BUF Personal Training NYC",
+      "logo": { "@type": "ImageObject", "url": `${SITE_URL}${LOGO_URL}` }
+    },
+    "blogPost": posts.map(p => ({
+      "@type": "BlogPosting",
+      "headline": p.title,
+      "url": `${SITE_URL}/blog/${p.slug}/`,
+      "datePublished": p.date.toISOString(),
+      "author": { "@type": "Person", "name": p.author }
+    }))
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL + "/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": url }
+    ]
+  };
+
   return head({
     title: `${BLOG_TITLE} | BUF Personal Training NYC`,
     description: `Strength training, mobility, and NYC fitness articles from BUF Personal Training. Practical training advice from NYC's most affordable studio.`,
     canonical: url,
   })
     + NAV
+    + `<script type="application/ld+json">${JSON.stringify(blogSchema)}</script>
+<script type="application/ld+json">${JSON.stringify(breadcrumbSchema)}</script>`
     + `<main>
   <section class="blog-hero">
     <div class="wrap">
@@ -671,12 +715,49 @@ function renderBlogIndex(posts) {
 function renderCategoryIndex(categorySlug, posts) {
   const categoryName = categoryDisplay(categorySlug);
   const url = `${SITE_URL}/blog/category/${categorySlug}/`;
+  const description = CATEGORY_DESCRIPTIONS[categorySlug] || `${categoryName} articles from BUF Personal Training NYC.`;
+
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": `${categoryName} | BUF Blog`,
+    "description": description,
+    "url": url,
+    "isPartOf": {
+      "@type": "Blog",
+      "name": BLOG_TITLE,
+      "url": `${SITE_URL}/blog/`
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": posts.length,
+      "itemListElement": posts.map((p, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "url": `${SITE_URL}/blog/${p.slug}/`,
+        "name": p.title
+      }))
+    }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL + "/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${SITE_URL}/blog/` },
+      { "@type": "ListItem", "position": 3, "name": categoryName, "item": url }
+    ]
+  };
+
   return head({
     title: CATEGORY_TITLES[categorySlug] || `${categoryName} | BUF Blog`,
-    description: CATEGORY_DESCRIPTIONS[categorySlug] || `${categoryName} articles from BUF Personal Training NYC.`,
+    description: description,
     canonical: url,
   })
     + NAV
+    + `<script type="application/ld+json">${JSON.stringify(collectionSchema)}</script>
+<script type="application/ld+json">${JSON.stringify(breadcrumbSchema)}</script>`
     + `<main>
   <section class="blog-hero">
     <div class="wrap">
