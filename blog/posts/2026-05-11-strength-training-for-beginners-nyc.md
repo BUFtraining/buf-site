@@ -1,4 +1,4 @@
-[2026-05-11-strength-training-for-beginners-nyc (1).md](https://github.com/user-attachments/files/27811009/2026-05-11-strength-training-for-beginners-nyc.1.md)
+[2026-05-11-strength-training-for-beginners-nyc.md](https://github.com/user-attachments/files/27811773/2026-05-11-strength-training-for-beginners-nyc.md)
 ---
 title: "Strength Training for Beginners: 12-Week NYC Plan"
 slug: strength-training-for-beginners-nyc
