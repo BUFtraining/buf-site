@@ -1,4 +1,4 @@
-[2026-05-06-hells-kitchen-strength-training-nyc.md](https://github.com/user-attachments/files/27810965/2026-05-06-hells-kitchen-strength-training-nyc.md)
+[2026-05-06-hells-kitchen-strength-training-nyc.md](https://github.com/user-attachments/files/27811753/2026-05-06-hells-kitchen-strength-training-nyc.md)
 ---
 title: "Hell's Kitchen: NYC's Best for Strength Training"
 slug: "hells-kitchen-strength-training-nyc"
