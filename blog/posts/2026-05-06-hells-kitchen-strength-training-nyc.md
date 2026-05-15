@@ -1,9 +1,10 @@
+[2026-05-06-hells-kitchen-strength-training-nyc.md](https://github.com/user-attachments/files/27810965/2026-05-06-hells-kitchen-strength-training-nyc.md)
 ---
-title: "Why Hell's Kitchen Has Quietly Become NYC's Best Neighborhood for Strength Training"
+title: "Hell's Kitchen: NYC's Best for Strength Training"
 slug: "hells-kitchen-strength-training-nyc"
 date: "2026-05-06"
 category: "nyc-fitness"
-excerpt: "Hell's Kitchen has more boutique strength training studios per square mile than almost anywhere else in Manhattan — and that's changing how New Yorkers think about fitness."
+excerpt: "Hell's Kitchen has more boutique strength training studios per square mile than anywhere else in Manhattan. Here's why that's changing NYC fitness."
 author: "Ben Unger"
 ---
 
