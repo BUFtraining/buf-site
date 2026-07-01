@@ -485,8 +485,8 @@ const FOOTER = `
         <h3>Neighborhoods</h3>
         <ul>
           <li><a href="/personal-trainer-hells-kitchen/">Hell's Kitchen</a></li>
-          <li><a href="/blog/hudson-yards-personal-trainer-nyc/">Hudson Yards</a></li>
-          <li><a href="/blog/chelsea-personal-trainer-nyc/">Chelsea</a></li>
+          <li><a href="/personal-trainer-hudson-yards/">Hudson Yards</a></li>
+          <li><a href="/personal-trainer-chelsea/">Chelsea</a></li>
         </ul>
       </div>
       <div>
@@ -814,6 +814,8 @@ function renderSitemap(posts) {
     { url: '/reviews/', priority: 0.8, changefreq: 'weekly' },
     { url: '/mobility-sessions/', priority: 0.8, changefreq: 'monthly' },
     { url: '/personal-trainer-hells-kitchen/', priority: 0.8, changefreq: 'monthly' },
+    { url: '/personal-trainer-hudson-yards/', priority: 0.8, changefreq: 'monthly' },
+    { url: '/personal-trainer-chelsea/', priority: 0.8, changefreq: 'monthly' },
     { url: '/about-us/', priority: 0.7, changefreq: 'monthly' },
     { url: '/contact-us/', priority: 0.7, changefreq: 'monthly' },
     { url: '/blog/', priority: 0.9, changefreq: 'weekly' },
