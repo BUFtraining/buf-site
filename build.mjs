@@ -353,7 +353,8 @@ const EDITORIAL_STYLES = `
   /* Footer */
   .footer { background: #07090d; color: rgba(255,255,255,0.7); padding: 4rem 0 2rem; }
   .footer-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 2.5rem; }
-  @media (min-width: 700px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; } }
+  @media (min-width: 700px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1000px) { .footer-grid { grid-template-columns: 1.7fr 1fr 1fr 1fr; } }
   .footer h3 {
     font-family: "Barlow Condensed", sans-serif; font-size: 0.85rem;
     letter-spacing: 0.25em; text-transform: uppercase; color: #fff; margin: 0 0 1rem;
@@ -478,6 +479,14 @@ const FOOTER = `
           <li><a href="/mobility-sessions/">Mobility</a></li>
           <li><a href="/about-us/">About</a></li>
           <li><a href="/blog/">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Neighborhoods</h3>
+        <ul>
+          <li><a href="/personal-trainer-hells-kitchen/">Hell's Kitchen</a></li>
+          <li><a href="/blog/hudson-yards-personal-trainer-nyc/">Hudson Yards</a></li>
+          <li><a href="/blog/chelsea-personal-trainer-nyc/">Chelsea</a></li>
         </ul>
       </div>
       <div>
@@ -804,6 +813,7 @@ function renderSitemap(posts) {
     { url: '/trainers/', priority: 0.8, changefreq: 'monthly' },
     { url: '/reviews/', priority: 0.8, changefreq: 'weekly' },
     { url: '/mobility-sessions/', priority: 0.8, changefreq: 'monthly' },
+    { url: '/personal-trainer-hells-kitchen/', priority: 0.8, changefreq: 'monthly' },
     { url: '/about-us/', priority: 0.7, changefreq: 'monthly' },
     { url: '/contact-us/', priority: 0.7, changefreq: 'monthly' },
     { url: '/blog/', priority: 0.9, changefreq: 'weekly' },
