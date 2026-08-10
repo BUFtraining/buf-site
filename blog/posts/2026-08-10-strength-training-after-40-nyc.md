@@ -1,4 +1,3 @@
-[2026-08-10-strength-training-after-40-nyc.md](https://github.com/user-attachments/files/30907920/2026-08-10-strength-training-after-40-nyc.md)
 ---
 title: "Strength Training After 40: A Realistic NYC Guide"
 seoTitle: "Strength Training After 40 in NYC | BUF Blog"
