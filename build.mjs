@@ -585,7 +585,7 @@ function renderPost(post, allPosts) {
     ]
   };
 
-  return head({ title: post.seoTitle || `${post.title} | BUF Blog`, description, canonical: url, type: 'article' })
+  return head({ title: post.seoTitle || `${post.title} | BUF Blog`, description, canonical: url, type: 'article', ogImage: post.ogImage ? `${SITE_URL}${post.ogImage}` : DEFAULT_OG })
     + NAV
     + `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
 <script type="application/ld+json">${JSON.stringify(breadcrumbSchema)}</script>
