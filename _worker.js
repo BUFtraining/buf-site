@@ -25,10 +25,121 @@ export default {
       return new Response('Method not allowed', { status: 405 });
     }
     
+    // Markdown for agents: if the client asks for text/markdown (content
+    // negotiation), serve a markdown conversion of the HTML page.
+    // Mirrors Cloudflare's paid "Markdown for Agents" feature.
+    const accept = request.headers.get('accept') || '';
+    if (request.method === 'GET' && accept.includes('text/markdown') && !url.pathname.startsWith('/api/')) {
+      const assetResponse = await env.ASSETS.fetch(request);
+      const ct = assetResponse.headers.get('content-type') || '';
+      if (assetResponse.ok && ct.includes('text/html')) {
+        const md = htmlToMarkdown(await assetResponse.text(), url);
+        return new Response(md, {
+          status: 200,
+          headers: {
+            'content-type': 'text/markdown; charset=utf-8',
+            'vary': 'Accept',
+            'content-signal': 'search=yes, ai-input=yes, ai-train=yes',
+            'x-markdown-tokens': String(Math.ceil(md.length / 4)),
+          },
+        });
+      }
+      return assetResponse;
+    }
+
     // Everything else: static assets (HTML, CSS, JS, images, _redirects, _headers)
     return env.ASSETS.fetch(request);
   },
 };
+
+// ---------------------------------------------------------------------------
+// HTML -> Markdown conversion (dependency-free, tuned for our static pages)
+// ---------------------------------------------------------------------------
+
+function htmlToMarkdown(html, url) {
+  // Page title + meta description from <head>
+  const titleMatch = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+  const descMatch = html.match(/<meta\s+name=["']description["']\s+content="([^"]*)"/i)
+    || html.match(/<meta\s+name=["']description["']\s+content='([^']*)'/i)
+    || html.match(/<meta\s+content="([^"]*)"\s+name=["']description["']/i)
+    || html.match(/<meta\s+content='([^']*)'\s+name=["']description["']/i);
+
+  let s = html;
+
+  // Drop non-content blocks entirely
+  s = s.replace(/<head[\s\S]*?<\/head>/gi, '');
+  for (const tag of ['script', 'style', 'noscript', 'svg', 'iframe', 'template', 'form', 'nav']) {
+    s = s.replace(new RegExp('<' + tag + '[\\s\\S]*?<\\/' + tag + '>', 'gi'), '');
+  }
+  s = s.replace(/<!--[\s\S]*?-->/g, '');
+
+  // Line breaks
+  s = s.replace(/<br\s*\/?>/gi, '\n');
+
+  // Headings
+  s = s.replace(/<h([1-6])[^>]*>([\s\S]*?)<\/h\1>/gi, (_, n, inner) =>
+    '\n\n' + '#'.repeat(Number(n)) + ' ' + stripTags(inner).replace(/\s+/g, ' ').trim() + '\n\n');
+
+  // Blockquotes
+  s = s.replace(/<blockquote[^>]*>([\s\S]*?)<\/blockquote>/gi, (_, inner) =>
+    '\n\n> ' + stripTags(inner).trim().replace(/\n+/g, '\n> ') + '\n\n');
+
+  // List items
+  s = s.replace(/<li[^>]*>([\s\S]*?)<\/li>/gi, (_, inner) => '\n- ' + inner.trim());
+
+  // Bold / italic
+  s = s.replace(/<(strong|b)[^>]*>([\s\S]*?)<\/\1>/gi, (_, t, inner) => '**' + inner.trim() + '**');
+  s = s.replace(/<(em|i)[^>]*>([\s\S]*?)<\/\1>/gi, (_, t, inner) => '*' + inner.trim() + '*');
+
+  // Links -> [text](absolute url); skip anchors/js links and image-only links
+  s = s.replace(/<a\s[^>]*href=["']([^"']*)["'][^>]*>([\s\S]*?)<\/a>/gi, (_, href, inner) => {
+    const text = stripTags(inner).trim();
+    if (!text || href.startsWith('#') || href.startsWith('javascript:')) return text;
+    let abs = href;
+    try { abs = new URL(href, url.origin).href; } catch (e) { /* keep as-is */ }
+    return '[' + text + '](' + abs + ')';
+  });
+
+  // Images -> alt text only (keeps pages lean for agents)
+  s = s.replace(/<img\s[^>]*alt=["']([^"']+)["'][^>]*>/gi, '');
+  s = s.replace(/<img[^>]*>/gi, '');
+
+  // Paragraph & block boundaries
+  s = s.replace(/<\/(p|div|section|article|header|footer|main|ul|ol|tr|table)>/gi, '\n\n');
+  s = s.replace(/<(p|div|section|article|header|footer|main|ul|ol|tr|table)[^>]*>/gi, '\n');
+  s = s.replace(/<\/(td|th)>\s*<(td|th)[^>]*>/gi, ' | ');
+
+  // Strip everything else, decode entities, tidy whitespace
+  s = stripTags(s);
+  s = decodeEntities(s);
+  s = s.replace(/[ \t]+/g, ' ')
+       .replace(/ *\n */g, '\n')
+       .replace(/\n{3,}/g, '\n\n')
+       .trim();
+
+  // Front matter with title + description
+  const title = titleMatch ? decodeEntities(stripTags(titleMatch[1]).trim()) : '';
+  const desc = descMatch ? decodeEntities(descMatch[1].trim()) : '';
+  let out = '---\n';
+  if (title) out += 'title: ' + title + '\n';
+  if (desc) out += 'description: ' + desc + '\n';
+  out += 'url: ' + url.origin + url.pathname + '\n---\n\n';
+  return out + s + '\n';
+}
+
+function stripTags(s) {
+  return s.replace(/<[^>]+>/g, '');
+}
+
+function decodeEntities(s) {
+  const named = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
+    mdash: '\u2014', ndash: '\u2013', rsquo: '\u2019', lsquo: '\u2018',
+    rdquo: '\u201d', ldquo: '\u201c', hellip: '\u2026', copy: '\u00a9', bull: '\u2022', middot: '\u00b7' };
+  return s
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
+    .replace(/&([a-z]+);/gi, (m, name) => named[name.toLowerCase()] ?? m);
+}
 
 async function handleContact(request, env, url) {
   const isTrpc = url && url.pathname.startsWith('/api/trpc');
