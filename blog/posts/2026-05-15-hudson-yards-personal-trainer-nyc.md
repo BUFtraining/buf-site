@@ -4,7 +4,7 @@ seoTitle: "Hudson Yards Personal Trainer Guide | BUF Blog"
 slug: hudson-yards-personal-trainer-nyc
 date: 2026-05-15
 category: nyc-fitness
-author: BUF Personal Training
+author: Ben Unger
 excerpt: "An insider's guide to personal training in Hudson Yards: what your body actually needs, where to train, and what office workers and residents should look for."
 ---
 

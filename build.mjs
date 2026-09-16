@@ -16,6 +16,36 @@ const SITE_URL = 'https://www.trainwithbuf.com';
 const BLOG_TITLE = 'BUF Blog';
 const BLOG_TAGLINE = 'Strength training, mobility, and NYC fitness from BUF Personal Training';
 const LOGO_URL = '/manus-storage/logo_white_clean_2cd7f9a9.png';
+
+// ---- Authors -----------------------------------------------------------
+const AUTHORS = {
+  'Ben Unger': {
+    name: 'Ben Unger',
+    jobTitle: 'Founder, NASM Certified Personal Trainer & NASM Certified Nutrition Coach',
+    credentials: 'NASM-CPT, NASM-CNC',
+    url: `${SITE_URL}/trainers/`,
+    image: `${SITE_URL}/manus-storage/ben_ae795376.jpg`,
+    sameAs: ['https://www.instagram.com/buf.training/'],
+  },
+};
+function authorSchema(name) {
+  const a = AUTHORS[name];
+  if (!a) return { "@type": "Organization", "name": name, "url": SITE_URL };
+  return {
+    "@type": "Person",
+    "name": a.name,
+    "jobTitle": a.jobTitle,
+    "url": a.url,
+    "image": a.image,
+    "sameAs": a.sameAs,
+    "worksFor": { "@type": "Organization", "@id": `${SITE_URL}/`, "name": "BUF Personal Training NYC" },
+  };
+}
+function bylineHtml(name) {
+  const a = AUTHORS[name];
+  if (!a) return esc(name);
+  return `Written by <a href="/trainers/" class="post-author-link" rel="author">${esc(a.name)}</a>, ${esc(a.credentials)} · Founder, BUF Personal Training (coaching NYC clients since 2017)`;
+}
 const DEFAULT_OG = `${SITE_URL}/manus-storage/gym_studio_3611ab9d.png`;
 
 marked.setOptions({
@@ -261,10 +291,12 @@ const EDITORIAL_STYLES = `
     margin: 0 0 1.25rem;
   }
   .post-meta {
-    display: flex; align-items: center; gap: 0.65rem;
+    display: flex; align-items: center; flex-wrap: wrap; gap: 0.65rem;
     font-family: "Barlow Condensed", sans-serif; font-size: 0.85rem;
     letter-spacing: 0.18em; text-transform: uppercase; color: var(--mute);
   }
+  .post-author-link { color: var(--red); text-decoration: none; border-bottom: 1px solid var(--red); }
+  .post-author-link:hover { color: var(--ink); border-color: var(--ink); }
   .post-body {
     font-family: "Lora", Georgia, serif; font-size: 1.075rem; line-height: 1.75; color: var(--ink);
   }
@@ -562,7 +594,7 @@ function renderPost(post, allPosts) {
     "headline": post.title,
     "datePublished": post.date.toISOString(),
     "dateModified": post.date.toISOString(),
-    "author": { "@type": "Person", "name": post.author },
+    "author": authorSchema(post.author),
     "publisher": {
       "@type": "Organization",
       "name": "BUF Personal Training NYC",
@@ -596,7 +628,7 @@ function renderPost(post, allPosts) {
         <a href="/blog/category/${post.category}/" class="post-category-badge">${esc(categoryDisplay(post.category))}</a>
         <h1>${esc(post.title)}</h1>
         <div class="post-meta">
-          <span>${esc(post.author)}</span>
+          <span class="post-byline">${bylineHtml(post.author)}</span>
           <span>·</span>
           <time datetime="${isoDate(post.date)}">${fmtDate(post.date)}</time>
         </div>
@@ -659,7 +691,7 @@ function renderBlogIndex(posts) {
       "headline": p.title,
       "url": `${SITE_URL}/blog/${p.slug}/`,
       "datePublished": p.date.toISOString(),
-      "author": { "@type": "Person", "name": p.author }
+      "author": authorSchema(p.author)
     }))
   };
 

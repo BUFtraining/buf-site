@@ -4,7 +4,7 @@ seoTitle: "Client Story: Zach's NYC Transformation | BUF Blog"
 slug: zach-transformation-personal-training-nyc
 date: 2026-08-25
 category: client-stories
-author: BUF Personal Training
+author: Ben Unger
 ogImage: /manus-storage/zach_transformation_og_7c41a9d2.jpg
 excerpt: "In a little over a year, Zach dropped 21 lbs and 14 percentage points of body fat training 3x a week in our 1-on-2 program. Here's exactly what he did."
 ---

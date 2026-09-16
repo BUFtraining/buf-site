@@ -4,7 +4,7 @@ slug: strength-training-for-beginners-nyc
 date: 2026-05-11
 category: training-tips
 excerpt: "A no-fluff 12-week strength training plan for adults in NYC. Exercises that matter, week-by-week expectations, beginner mistakes, when to hire a coach."
-author: BUF Personal Training
+author: Ben Unger
 ---
 
 If you're an adult in NYC thinking about starting strength training, you've probably already encountered the problem: there's an overwhelming amount of advice online and almost none of it accounts for the realities of training in Manhattan — limited space, packed gyms at peak hours, expensive equipment, and tight schedules between work and the rest of life.

@@ -4,7 +4,7 @@ seoTitle: "How Often Should You Strength Train? | BUF Blog"
 slug: how-often-strength-training-nyc
 date: 2026-06-28
 category: training-tips
-author: BUF Personal Training
+author: Ben Unger
 excerpt: "The honest answer to how often you should strength train in NYC. Why 2-3 times a week beats the standard '5 days a week' advice for most adults."
 ---
 

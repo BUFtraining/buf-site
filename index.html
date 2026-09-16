@@ -58,10 +58,12 @@
         "addressCountry": "US"
       },
       "foundingDate": "2017",
+        "founder": { "@type": "Person", "name": "Ben Unger", "jobTitle": "Founder, NASM Certified Personal Trainer & NASM Certified Nutrition Coach", "url": "https://www.trainwithbuf.com/trainers/" },
+        "logo": "https://www.trainwithbuf.com/manus-storage/logo_white_clean_2cd7f9a9.png",
       "geo": { "@type": "GeoCoordinates", "latitude": 40.7527, "longitude": -74.0001 },
       "openingHoursSpecification": [
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "06:00", "closes": "21:00" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "08:00", "closes": "17:00" }
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "09:00", "closes": "18:00" }
       ],
       "areaServed": [
         { "@type": "City", "name": "New York" },
@@ -72,8 +74,7 @@
       ],
       "priceRange": "$$",
       "image": "https://www.trainwithbuf.com/manus-storage/gym_studio_3611ab9d.png",
-      "sameAs": ["https://www.instagram.com/buf.training/"],
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "200", "bestRating": "5", "worstRating": "1" },
+      "sameAs": ["https://www.instagram.com/buf.training/", "https://www.google.com/search?kgmid=/g/11h55sxtb_&q=BUF+Personal+Training", "https://share.google/mCL1ZZ9X0BYT48zzM"],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "BUF Personal Training Services",
@@ -244,12 +245,18 @@
         .hero { padding: 9rem 0 2rem; }
         .hero-inner { grid-template-columns: 1.1fr 1fr; gap: 5rem; }
       }
-      .hero h1 {
+      .hero-h1 {
+        font-family: "Barlow Condensed", sans-serif; font-weight: 600;
+        font-size: 1.05rem; letter-spacing: 0.12em; text-transform: uppercase;
+        color: rgba(255,255,255,0.82); margin: 1.1rem 0 0;
+      }
+      .hero-display {
+        font-family: "Barlow Condensed", sans-serif; font-weight: 700; color: #fff;
         font-size: clamp(3.25rem, 10vw, 7rem);
         line-height: 0.9; letter-spacing: -0.02em; text-transform: uppercase;
-        margin: 1.25rem 0 1.5rem;
+        margin: 0.5rem 0 1.5rem;
       }
-      .hero h1 .red {
+      .hero-display .red {
         color: var(--red); font-style: italic; font-family: "Lora", serif; font-weight: 600;
         text-transform: none; font-size: 0.72em; letter-spacing: -0.02em; display: block; margin-top: 0.5rem;
       }
@@ -653,10 +660,11 @@
         <div class="wrap hero-inner">
           <div>
             <span class="eyebrow eyebrow-light">BUF Personal Training · New York City</span>
-            <h1>
+            <h1 class="hero-h1">Personal Training in NYC — Every Session Under $100</h1>
+            <p class="hero-display">
               Get Strong,<br>Lose Fat,<br>
               <span class="red">Feel great.</span>
-            </h1>
+            </p>
             <p class="hero-sub">
               Exceptional & affordable personal training serving Midtown Manhattan, Hell's Kitchen, Hudson Yards, and Chelsea. <strong>All sessions under $100</strong> — no contracts, no membership fees.
             </p>
@@ -969,7 +977,7 @@
               <div class="info-block">
                 <h3>Hours</h3>
                 <p><strong>Mon – Fri</strong> &nbsp; 6:00 AM – 9:00 PM</p>
-                <p><strong>Sat – Sun</strong> &nbsp; 8:00 AM – 5:00 PM</p>
+                <p><strong>Sat – Sun</strong> &nbsp; 9:00 AM – 6:00 PM</p>
               </div>
             </aside>
 

@@ -4,7 +4,7 @@ seoTitle: "First Personal Training Session in NYC | BUF Blog"
 slug: first-personal-training-session-nyc
 date: 2026-05-15
 category: training-tips
-author: BUF Personal Training
+author: Ben Unger
 excerpt: "What actually happens at a first personal training session in NYC. The assessment, the workout, questions to ask, and red flags to watch for."
 ---
 

@@ -4,7 +4,7 @@ slug: how-much-does-personal-training-cost-nyc
 date: 2026-05-08
 category: nyc-fitness
 excerpt: "What personal training actually costs in NYC in 2026: $50 entry-level to $300/hr celebrity rates. Plus how to find quality training under $100."
-author: BUF Personal Training
+author: Ben Unger
 ---
 
 If you've ever asked Google "how much does a personal trainer cost in NYC?" and gotten back a price range so wide it was useless — $40 to $400 per session — you're not alone. The honest answer is: it depends. But it shouldn't be a mystery.

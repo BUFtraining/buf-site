@@ -4,7 +4,7 @@ seoTitle: "Mobility Training in NYC | BUF Blog"
 slug: mobility-training-nyc
 date: 2026-05-15
 category: mobility
-author: BUF Personal Training
+author: Ben Unger
 excerpt: "Why NYC strength trainees skip mobility work, why that's a mistake, and what good mobility coaching actually involves in practice."
 ---
 

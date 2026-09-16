@@ -4,7 +4,7 @@ seoTitle: "Nutrition for NYC Strength Trainees | BUF Blog"
 slug: strength-training-nutrition-nyc
 date: 2026-07-25
 category: nutrition
-author: BUF Personal Training
+author: Ben Unger
 excerpt: "The honest guide to nutrition for NYC adults who strength train. Protein, meal timing, tracking, eating out — what actually moves the needle."
 ---
 
@@ -43,7 +43,7 @@ You could get 95% of nutrition results from a strategy that says: *hit your prot
 
 For NYC adults who strength train, protein is the macro that moves the needle. It's what your body uses to build and preserve muscle, and it's the single most consistent factor in successful body composition changes.
 
-**The number to hit:** 0.7 to 1 gram of protein per pound of bodyweight per day. For most NYC adults, that lands somewhere between 130 and 200 grams daily.
+**The number to hit:** 0.7 to 1 gram of protein per pound of bodyweight per day (roughly 1.6–2.2 g/kg, which is the range supported by the research on resistance-trained adults<sup>1</sup>). For most NYC adults, that lands somewhere between 130 and 200 grams daily.
 
 - 150 lb woman: 105-150g protein per day
 - 175 lb man: 125-175g protein per day
@@ -193,3 +193,11 @@ Nutrition for NYC strength trainees isn't complicated. Enough protein. Appropria
 The people who make the biggest changes aren't following the most elaborate protocols. They're doing the basics consistently for a long time. Track for a while to build awareness. Anchor every meal with protein. Eat out strategically. Don't panic about weekends. Give it six to twelve months of honest effort before evaluating results.
 
 That's the whole game. The rest is Instagram.
+
+## Sources
+
+1. Morton RW, et al. "A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults." *British Journal of Sports Medicine*, 2018.
+
+Additional background: Jäger R, et al., "International Society of Sports Nutrition Position Stand: protein and exercise," *Journal of the International Society of Sports Nutrition*, 2017; Schoenfeld BJ, Aragon AA, "How much protein can the body use in a single meal for muscle-building?" *Journal of the International Society of Sports Nutrition*, 2018.
+
+*This article is general education from a certified nutrition coach, not medical advice. If you have a medical condition that affects your diet, work with your physician or a registered dietitian.*

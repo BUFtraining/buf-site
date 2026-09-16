@@ -4,7 +4,7 @@ date: 2026-06-06
 category: nyc-fitness
 slug: chelsea-personal-trainer-nyc
 excerpt: "Chelsea has more fitness options than almost any NYC neighborhood. Here's why so many residents still end up hiring a personal trainer — and what to look for if you do."
-author: BUF Personal Training
+author: Ben Unger
 ---
 
 Chelsea has more fitness infrastructure per square block than almost any neighborhood in New York. Chelsea Piers — a 28-acre sports complex on the Hudson — is a destination in its own right. Equinox has multiple locations within walking distance. Every new condo built in the past fifteen years has a fitness center. Yoga studios, Pilates studios, climbing gyms, spin studios, boxing gyms, and boutique strength studios all sit within a ten-block radius.

@@ -4,7 +4,7 @@ seoTitle: "Strength Training After 40 in NYC | BUF Blog"
 slug: strength-training-after-40-nyc
 date: 2026-08-10
 category: training-tips
-author: BUF Personal Training
+author: Ben Unger
 excerpt: "A realistic guide to strength training after 40 in NYC. What actually changes, what stays the same, and how to build meaningful strength for the next 20 years."
 ---
 
@@ -18,7 +18,7 @@ This is a guide to strength training after 40 in NYC. What actually changes in y
 
 The physiological changes are real but often overstated. Here's what genuinely shifts:
 
-**Muscle protein synthesis slows.** After 40, your body responds slightly less efficiently to the muscle-building signal from training and protein. The research shows roughly a 1% per year decline in muscle mass if you're not actively training against it — but this decline is nearly completely preventable with proper strength training and adequate protein.
+**Muscle protein synthesis slows.** After 40, your body responds slightly less efficiently to the muscle-building signal from training and protein. Research on sarcopenia suggests untrained adults lose muscle mass at somewhere around 0.5–1% per year from mid-life onward — but consistent strength training and adequate protein slow that decline dramatically, and in many people reverse it.<sup>1, 2</sup>
 
 **Recovery takes longer.** The same session that felt fine at 30 might leave you sore for three days at 45. This isn't a sign to stop training — it's a sign to program more carefully around recovery.
 
@@ -102,12 +102,12 @@ If you're going to build a sustainable strength program after 40, these principl
 
 If you're strength training after 40 in NYC, [mobility work is the pillar you can't skip](/blog/mobility-training-nyc/). We've written about this extensively, but the short version:
 
-- 15-30 minutes of daily mobility work prevents most of the injury patterns we see in 40+ lifters
+- 15-30 minutes of daily mobility work addresses most of the movement limitations we see in 40+ lifters, and in our experience those limitations are where a lot of training injuries start
 - Focus areas: hips (destroyed by desk work), thoracic spine (destroyed by desk work + screens), shoulders (destroyed by desk work + screens + lifting), ankles (destroyed by dress shoes)
 - Loaded stretching and controlled articular rotations produce better long-term mobility than passive stretching
 - Doing mobility on your own is fine for maintenance; assessment with a coach is worth it for identifying your specific limitations
 
-The math is favorable: 30 minutes a week of mobility work prevents the months of lost training that come with a serious injury. It's the single highest-leverage investment a 40+ lifter can make outside of the strength sessions themselves.
+The math is favorable: a few hours of mobility work a month is cheap insurance against the months of lost training that come with a serious injury. It's one of the highest-leverage investments a 40+ lifter can make outside of the strength sessions themselves. (Worth being honest about the evidence here: the strongest research support for injury reduction is for strength training itself; the evidence for stretching and mobility work on its own is weaker.<sup>3</sup> That's why we treat mobility as a support for lifting well, not a substitute for it.)
 
 ## Common mistakes we see with 40+ NYC clients
 
@@ -127,7 +127,7 @@ Years of coaching this demographic reveals a consistent pattern of what goes wro
 
 **Under-eating protein.** Especially common among 40+ women trying to lose weight — they cut calories dramatically and don't hit protein targets, so they lose muscle along with fat. Result: lower metabolic rate, weakness, harder to maintain results.
 
-**Not doing mobility work.** The single biggest predictor of who gets injured. Skipping mobility work at 40+ is like skipping brake maintenance on a car you plan to drive for 20 more years.
+**Not doing mobility work.** In our coaching experience, one of the most common things that separates the 40+ clients who get hurt from the ones who don't. Skipping mobility work at 40+ is like skipping brake maintenance on a car you plan to drive for 20 more years.
 
 ## How BUF trains clients over 40
 
@@ -150,3 +150,13 @@ Get these right and you can build meaningful strength through your 40s, 50s, 60s
 If you're playing the long game — trying to be strong and functional for the next 30 years, not just the next 3 — the math is on your side. The lifter who trains consistently at 60% intensity for 20 years will be stronger, healthier, and more injury-free than the one who trained at 100% intensity for 2 years and then couldn't sustain it. That's the math worth investing in.
 
 Start where you are. Train smart. Play the long game.
+
+## Sources
+
+1. Mitchell WK, et al. "Sarcopenia, dynapenia, and the impact of advancing age on human skeletal muscle size and strength; a quantitative review." *Frontiers in Physiology*, 2012.
+2. Fragala MS, et al. "Resistance Training for Older Adults: Position Statement From the National Strength and Conditioning Association." *Journal of Strength and Conditioning Research*, 2019.
+3. Lauersen JB, Bertelsen DM, Andersen LB. "The effectiveness of exercise interventions to prevent sports injuries: a systematic review and meta-analysis of randomised controlled trials." *British Journal of Sports Medicine*, 2014.
+
+Additional background: American College of Sports Medicine Position Stand, "Exercise and Physical Activity for Older Adults," *Medicine & Science in Sports & Exercise*, 2009; Burd NA, et al., "Anabolic resistance of muscle protein synthesis with aging," *Exercise and Sport Sciences Reviews*, 2013.
+
+*This article is general education from a certified personal trainer and nutrition coach, not medical advice. If you have an injury, a heart condition, or another medical concern, talk to your physician before starting a new strength program.*
