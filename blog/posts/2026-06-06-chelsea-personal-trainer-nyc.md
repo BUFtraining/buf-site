@@ -67,7 +67,7 @@ A few things that matter more than people realize:
 
 **Movement assessment.** Your first session should include a real look at how you move — your squat, hinge, push, pull, and overhead patterns. If your first session is just a workout, you're getting a personal class, not personal training.
 
-**Honest pricing.** Trainers in Chelsea proper often run $150-200 per session. If a price seems too good to be true, ask what the catch is (often: very short sessions, group "personal" training, or a hard-sell on long-term packages). If a price is in the $90-100 range with full one-on-one attention, that's a real value in this market — not a red flag.
+**Honest pricing.** Trainers in Chelsea proper often run $150-200 per session. If a price seems too good to be true, ask what the catch is (often: very short sessions, group "personal" training, or a hard-sell on long-term packages). If a price is in the $90–$98 range with full one-on-one attention (which is where [BUF's rates](/rates/) sit), that's a real value in this market — not a red flag.
 
 **Scheduling flexibility.** Chelsea schedules range from 6 AM gallery openings to 11 PM restaurant closings. A trainer who only works 10-4 won't be useful to most Chelsea residents.
 

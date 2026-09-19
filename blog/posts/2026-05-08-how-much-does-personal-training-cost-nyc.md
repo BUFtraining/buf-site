@@ -102,7 +102,7 @@ The other side of the coin: not every cheap trainer is a steal. Things to be ske
 
 ## Where BUF fits
 
-For context: at [BUF Personal Training](/) on West 36th Street in Hell's Kitchen, our [rates](/rates/) are $90/hour for 1-on-1 sessions and $60/person for semi-private. No membership fees, no contracts, no upsells. We've trained over 1,000 NYC clients since 2017 with a 5-star Google rating, serving Hell's Kitchen, Hudson Yards, Chelsea, and Midtown.
+For context: at [BUF Personal Training](/) on West 36th Street in Hell's Kitchen, our [rates](/rates/) are $90–$98 per hour for 1-on-1 sessions and $60–$70 per person for semi-private, depending on weekly frequency — every session under $100. No membership fees, no contracts, no upsells. We've trained over 1,000 NYC clients since 2017 with a 5-star Google rating, serving Hell's Kitchen, Hudson Yards, Chelsea, and Midtown.
 
 Whether you train with us or someone else: the goal of this post isn't to sell you on BUF. It's to give you enough information to spot a fair deal — wherever you find it.
 

@@ -4,7 +4,13 @@
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
-    
+
+    // Canonical host: 301 apex -> www so search engines see one origin
+    if (url.hostname === 'trainwithbuf.com') {
+      url.hostname = 'www.trainwithbuf.com';
+      return Response.redirect(url.toString(), 301);
+    }
+
     // Handle contact form submissions
     // - /api/contact: our own clean endpoint
     // - /api/trpc/*:  Manus's React form posts here (tRPC mutations); intercept and treat as contact

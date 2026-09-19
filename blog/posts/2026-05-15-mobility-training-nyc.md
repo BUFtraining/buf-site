@@ -10,7 +10,7 @@ excerpt: "Why NYC strength trainees skip mobility work, why that's a mistake, an
 
 Most NYC adults who take their training seriously do strength work. They lift, they progress, they care about their numbers. What they almost universally skip — and pay for later — is mobility.
 
-The math is brutal: 30 minutes of mobility work per week, programmed correctly, prevents the kinds of injuries that cost three to six months of lost training time. Skip it, and the cracks that started forming in your hips and shoulders during years of desk work plus loaded lifting will eventually become real problems. Most people don't connect the dots until they're sidelined.
+The math is simple: 30 minutes of mobility work per week, programmed correctly, is cheap insurance against the kinds of injuries that cost three to six months of lost training time. Skip it, and the cracks that started forming in your hips and shoulders during years of desk work plus loaded lifting will eventually become real problems. Most people don't connect the dots until they're sidelined.
 
 This is a guide to why mobility training matters for NYC adults, what good mobility work actually involves (it's not stretching), why we recommend it as part of every serious strength program at BUF, and what to look for if you're considering hiring a coach for it.
 
@@ -34,11 +34,11 @@ Three forces compound against the average NYC adult's mobility:
 
 **Lifting on top of that.** Strength training is healthy, but it doesn't *undo* the damage from desk work. In fact, it can make it worse. If you squat heavy with restricted hip mobility, your knees cave in and your low back rounds at the bottom. If you bench heavy with internally rotated shoulders, your rotator cuff takes a beating. If you deadlift with a stiff T-spine, your low back does work the upper back should be doing. Strength without mobility builds compensations, then loads them.
 
-**Age.** Joint range of motion declines naturally starting in your late 20s, accelerating in your 40s. Sleep quality drops, recovery slows, connective tissue becomes less pliable. Some of this is unavoidable. Most of the damage is preventable with the right work.
+**Age.** Joint range of motion declines naturally starting in your late 20s, accelerating in your 40s. Sleep quality drops, recovery slows, connective tissue becomes less pliable. Some of this is unavoidable. A lot of the practical loss of range of motion can be slowed or recovered with the right work.
 
 The NYC professionals we train show remarkably consistent patterns: limited hip internal rotation, stiff thoracic spines, weak posterior chains, internally rotated shoulders, anterior pelvic tilt, forward head posture, and tight ankles from years of dress shoes. The bodies are different but the limitations are similar. The fix is the same too.
 
-## How mobility prevents injury for strength trainees
+## How mobility helps reduce injury risk for strength trainees
 
 The argument for mobility work is simple: bad mobility creates compensations, and compensations under load create injuries.
 
@@ -52,7 +52,7 @@ Concrete examples we see all the time:
 
 **Internally rotated shoulders → impingement.** Years of forward-rolled shoulders from desk work plus loaded bench press and rows? You're loading internal rotation under stress. Impingement is the typical result, often in your 30s-40s.
 
-None of these injuries are inevitable. All of them are preventable with mobility work integrated into your training. The cost-benefit is wildly favorable: 20-30 minutes of mobility work per week prevents months of injury rehab.
+None of these injuries are inevitable, and in our experience most of them trace back to movement limitations that mobility work addresses. An honest note on the evidence: the strongest research support for injury reduction is for strength training itself, while the evidence for stretching and mobility work on its own is weaker.<sup>1</sup> That's exactly why we treat mobility as a support for lifting with good mechanics rather than a stand-alone fix. The cost-benefit is still favorable: 20-30 minutes a week is a small price against months of injury rehab.
 
 ## What good mobility work actually involves
 
@@ -88,7 +88,7 @@ At BUF we offer two formats for standalone mobility sessions:
 
 **60-minute sessions.** Full assessment and comprehensive work across the body. Better for clients who are using mobility as their primary intervention (people coming back from injury, people who can't tolerate strength training yet, or people whose limitations are severe enough that full-body work matters). Also better for an initial mobility-focused session even if you'll switch to 30s after.
 
-We recommend mobility work as part of every serious strength program. The minimum we suggest is one 30-minute mobility session per week alongside two strength sessions, or some mobility work integrated into each strength session. The math favors mobility heavily: 30 minutes a week of targeted work is what prevents the months of lost training that comes with an injury.
+We recommend mobility work as part of every serious strength program. The minimum we suggest is one 30-minute mobility session per week alongside two strength sessions, or some mobility work integrated into each strength session. The math favors mobility heavily: 30 minutes a week of targeted work is a small investment against the months of lost training that come with an injury.
 
 ## What you can do on your own (and when you can't)
 
@@ -147,8 +147,16 @@ Sessions happen at our Hell's Kitchen studio at 347 W 36th St — a short walk f
 
 ## The bottom line
 
-If you're an NYC adult who does any serious strength training and you've been skipping mobility work, you're carrying a real risk that compounds quietly until it shows up as an injury. The fix isn't dramatic — 20-30 minutes a week of targeted work, integrated with your strength training, prevents most of the patterns that derail people in their 30s and 40s.
+If you're an NYC adult who does any serious strength training and you've been skipping mobility work, you're carrying a real risk that compounds quietly until it shows up as an injury. The fix isn't dramatic — 20-30 minutes a week of targeted work, integrated with your strength training, addresses most of the movement patterns we see derail people in their 30s and 40s.
 
 Mobility isn't glamorous. It's not the part of your training you'll post about. But it's what keeps you training consistently for the next 20 years instead of the next 20 weeks. That's the actual return.
 
 If you're already lifting, add the mobility work. If you can't yet, [give us a call](/contact-us/) and we'll help you figure out where to start.
+
+## Sources
+
+1. Lauersen JB, Bertelsen DM, Andersen LB. "The effectiveness of exercise interventions to prevent sports injuries: a systematic review and meta-analysis of randomised controlled trials." *British Journal of Sports Medicine*, 2014.
+
+Additional background: Thomas E, et al., "The Relation Between Stretching Typology and Stretching Duration: The Effects on Range of Motion," *International Journal of Sports Medicine*, 2018; Behm DG, et al., "Acute effects of muscle stretching on physical performance, range of motion, and injury incidence in healthy active individuals: a systematic review," *Applied Physiology, Nutrition, and Metabolism*, 2016.
+
+*This article is general education from a certified personal trainer and nutrition coach, not medical advice. If you have an injury or a medical condition, talk to your physician before starting a new training program.*

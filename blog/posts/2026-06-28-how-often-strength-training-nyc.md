@@ -20,7 +20,7 @@ This is a guide to how often you should actually strength train if you're an adu
 
 Two to three properly programmed strength sessions per week is the sweet spot for the vast majority of adults — including beginners, intermediates, and most non-competitive lifters.
 
-This isn't a corner-cutting recommendation. The exercise science research backs it directly. Studies on training frequency and hypertrophy (muscle growth) have repeatedly shown that for natural lifters, the most important variable isn't how *often* you train — it's the total *volume* you accumulate per muscle group per week. You can get the same results from 2 sessions of higher volume as you can from 4 sessions of lower volume, provided the total work adds up.
+This isn't a corner-cutting recommendation. The exercise science research backs it directly. Studies on training frequency and hypertrophy (muscle growth) have repeatedly shown that for natural lifters, the most important variable isn't how *often* you train — it's the total *volume* you accumulate per muscle group per week.<sup>1, 2</sup> You can get the same results from 2 sessions of higher volume as you can from 4 sessions of lower volume, provided the total work adds up.
 
 What the research shows in practice:
 
@@ -61,7 +61,7 @@ Pure maintenance, not progress. If you stop training entirely you'll lose streng
 The most common frequency at BUF, and where most of our long-term clients land. With full-body programming, 2 well-structured sessions per week deliver real strength and muscle gains for beginners through intermediates. Progress is slower than at higher frequencies, but it's sustainable indefinitely. Most adults can maintain this for years without burning out. **The right choice for most working NYC professionals.**
 
 ### 3 sessions per week
-The sweet spot for adults who want maximum results without compromising the rest of their life. You can fit more volume per muscle group, work in some variety, and recover well between sessions. The marginal gains over 2 sessions are real but modest — maybe 15-25% faster progress. **Best for adults with somewhat flexible schedules who want to prioritize strength as a major life pillar.**
+The sweet spot for adults who want maximum results without compromising the rest of their life. You can fit more volume per muscle group, work in some variety, and recover well between sessions. The marginal gains over 2 sessions are real but modest — the research suggests a small edge from spreading the same weekly volume over more days, not a dramatic one.<sup>1</sup> **Best for adults with somewhat flexible schedules who want to prioritize strength as a major life pillar.**
 
 ### 4 sessions per week
 The point of diminishing returns starts here for most natural lifters. You can train more muscle groups, use upper/lower splits, and add specialization. But recovery starts to matter more than additional volume, and you need to be much more careful about programming. For the standard NYC professional, 4 sessions a week is unsustainable long-term. **Reasonable for shorter periods (8-12 week blocks targeting a specific goal) but rarely worth it as a permanent setup.**
@@ -160,3 +160,12 @@ The right answer to "how often should I strength train" isn't five or six days a
 Frequency isn't the variable that limits most adults' progress. Consistency is. And the only sustainable consistency for most working adults is 2-3 sessions per week.
 
 That's the math. Plan accordingly.
+
+## Sources
+
+1. Schoenfeld BJ, Grgic J, Krieger J. "How many times per week should a muscle be trained to maximize muscle hypertrophy? A systematic review and meta-analysis of studies examining the effects of resistance training frequency." *Journal of Sports Sciences*, 2019.
+2. Schoenfeld BJ, Ogborn D, Krieger JW. "Dose-response relationship between weekly resistance training volume and increases in muscle mass: A systematic review and meta-analysis." *Journal of Sports Sciences*, 2017.
+
+Additional background: Ralston GW, et al., "Weekly Training Frequency Effects on Strength Gain: A Meta-Analysis," *Sports Medicine – Open*, 2018.
+
+*This article is general education from a certified personal trainer and nutrition coach, not medical advice. If you have an injury or a medical condition, talk to your physician before starting a new training program.*

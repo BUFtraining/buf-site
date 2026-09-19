@@ -17,7 +17,7 @@ Strength training — sometimes called weightlifting, resistance training, or we
 
 A few realities backed by exercise science research:
 
-- Adults lose roughly 3-8% of muscle mass per decade after age 30 if not training to maintain it
+- Adults lose roughly 3-8% of muscle mass per decade after age 30 if not training to maintain it<sup>1</sup>
 - Bone density decline accelerates after 35-40, especially in women
 - Insulin sensitivity, posture, and joint resilience all benefit measurably from twice-weekly strength work
 - Cardio alone — the default exercise mode for most NYC professionals — does almost none of this
@@ -145,7 +145,7 @@ A coach is probably overkill if:
 - You've worked with a coach before and absorbed the principles
 - You only have budget for 2 sessions per month and can't commit to consistency
 
-At BUF, our [rates](/rates/) are $90/hour for 1-on-1 and $60/person for semi-private — affordable enough that even committing to 1-2 sessions per week for the first 8 weeks of your strength training journey doesn't break the bank. Most clients use 1-on-1 for the first month, then transition to semi-private or twice-monthly check-ins.
+At BUF, our [rates](/rates/) are $90–$98 per hour for 1-on-1 and $60–$70 per person for semi-private, depending on how many sessions a week you book — affordable enough that even committing to 1-2 sessions per week for the first 8 weeks of your strength training journey doesn't break the bank. Most clients use 1-on-1 for the first month, then transition to semi-private or twice-monthly check-ins.
 
 ## The takeaway
 
@@ -156,3 +156,11 @@ The hardest part is the first two weeks — when nothing feels especially hard b
 If you're in Hell's Kitchen, Hudson Yards, Chelsea, or Midtown and want a coach to make those first 12 weeks count, [book a free consultation](/contact-us/) or [meet our trainers](/trainers/). For more context on what affordable personal training in NYC actually looks like, see our [pricing guide](/blog/how-much-does-personal-training-cost-nyc/) and our [strength training overview](/blog/hells-kitchen-strength-training-nyc/).
 
 Either way: start. The next 12 weeks pass whether you train or not.
+
+## Sources
+
+1. Volpi E, Nazemi R, Fujita S. "Muscle tissue changes with aging." *Current Opinion in Clinical Nutrition and Metabolic Care*, 2004.
+
+Additional background: Fragala MS, et al., "Resistance Training for Older Adults: Position Statement From the National Strength and Conditioning Association," *Journal of Strength and Conditioning Research*, 2019; American College of Sports Medicine, "Progression Models in Resistance Training for Healthy Adults," *Medicine & Science in Sports & Exercise*, 2009.
+
+*This article is general education from a certified personal trainer and nutrition coach, not medical advice. If you have an injury or a medical condition, talk to your physician before starting a new training program.*

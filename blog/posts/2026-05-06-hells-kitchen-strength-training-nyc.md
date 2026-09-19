@@ -45,7 +45,7 @@ Manhattan personal training has a deserved reputation for being absurdly expensi
 
 Boutique studios in Hell's Kitchen have been pushing back on this. The model is volume — more clients per coach per week, lower per-session cost, no membership fees, no contracts.
 
-At BUF, every session is under $100. Solo 1-on-1 sessions range from $90/hr down to $50 for shorter formats. Train with a partner and your per-person cost drops to $30-$70 depending on frequency. There's no membership fee, no joining fee, no contract.
+At BUF, every session is under $100. Solo 1-on-1 hour sessions run $90–$98 depending on how often you train (half-hour sessions $50–$60). Train with a partner and your per-person cost drops to $60–$70 per hour session ($30–$40 for half-hour sessions). There's no membership fee, no joining fee, no contract.
 
 That's not a budget version of personal training. The coaches at affordable Hell's Kitchen studios aren't less qualified — most are NASM, ACE, or NCSF certified, and several have decades of experience. The difference is the business model. We rent less expensive space, take fewer marketing shortcuts, and pass the savings on.
 

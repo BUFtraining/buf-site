@@ -88,7 +88,7 @@ Best for: People who genuinely can't leave their building (post-injury, very you
 ### A small personal training studio nearby
 This is what most of our Hudson Yards clients have settled on. A neighborhood studio with serious equipment, a trainer who actually knows them, and pricing that's a fraction of Equinox personal training. Walking distance from the office or apartment. Easy to fit into a workday.
 
-Studios like ours (BUF, at 347 W 36th St in Hell's Kitchen — about a 7-minute walk east of Hudson Yards proper) typically charge $80-100 per session compared to Equinox's $150-220. The trade-off is a smaller, more focused environment.
+Studios like ours (BUF, at 347 W 36th St in Hell's Kitchen — about a 7-minute walk east of Hudson Yards proper) typically charge under $100 per session (BUF's 1-on-1 hour sessions are $90–$98 depending on frequency) compared to Equinox's $150-220. The trade-off is a smaller, more focused environment.
 
 Best for: People who want serious training at a reasonable price without the corporate gym overhead.
 
