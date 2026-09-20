@@ -37,3 +37,7 @@
 /our-trainers            /trainers/             301
 /our-trainers/           /trainers/             301
 /our-trainers/*          /trainers/             301
+
+/personal-training-nyc  /personal-training-nyc/  301
+/semi-private-personal-training-nyc  /semi-private-personal-training-nyc/  301
+/nutrition-coaching-nyc  /nutrition-coaching-nyc/  301

@@ -506,6 +506,9 @@ const FOOTER = `
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/rates/">Rates</a></li>
+              <li><a href="/personal-training-nyc/">1-on-1 Training</a></li>
+              <li><a href="/semi-private-personal-training-nyc/">Semi-Private Training</a></li>
+              <li><a href="/nutrition-coaching-nyc/">Nutrition Coaching</a></li>
           <li><a href="/trainers/">Trainers</a></li>
           <li><a href="/reviews/">Reviews</a></li>
           <li><a href="/mobility-sessions/">Mobility</a></li>
@@ -845,6 +848,9 @@ function renderSitemap(posts) {
     { url: '/trainers/', priority: 0.8, changefreq: 'monthly' },
     { url: '/reviews/', priority: 0.8, changefreq: 'weekly' },
     { url: '/mobility-sessions/', priority: 0.8, changefreq: 'monthly' },
+    { url: '/personal-training-nyc/', priority: 0.9, changefreq: 'monthly' },
+    { url: '/semi-private-personal-training-nyc/', priority: 0.9, changefreq: 'monthly' },
+    { url: '/nutrition-coaching-nyc/', priority: 0.8, changefreq: 'monthly' },
     { url: '/personal-trainer-hells-kitchen/', priority: 0.8, changefreq: 'monthly' },
     { url: '/personal-trainer-hudson-yards/', priority: 0.8, changefreq: 'monthly' },
     { url: '/personal-trainer-chelsea/', priority: 0.8, changefreq: 'monthly' },
