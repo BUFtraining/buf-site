@@ -69,7 +69,7 @@ const CATEGORY_DESCRIPTIONS = {
   'client-stories': 'Real BUF Personal Training client stories from Midtown Manhattan. Transformations, training journeys, and what worked for NYC clients like you.',
   'nyc-fitness':    "NYC fitness articles from BUF Personal Training: pricing guides, neighborhood breakdowns, gym comparisons, and what's actually worth your money.",
   'nutrition':      'Nutrition articles from BUF Personal Training in NYC: practical eating guidance for adults training for fat loss, strength, or just feeling better.',
-  'mobility':       'Mobility and recovery articles from BUF Personal Training in NYC. Joint pain, flexibility, and recovery strategies for busy adult lifters.',
+  'mobility':       'Mobility and recovery articles from BUF Personal Training in NYC. Flexibility, joint health, and recovery strategies for busy adult lifters.',
 };
 
 // Tailored SEO titles per category (used in <title>)
