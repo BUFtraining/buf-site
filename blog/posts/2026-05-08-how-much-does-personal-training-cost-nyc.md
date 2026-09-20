@@ -11,6 +11,8 @@ If you've ever asked Google "how much does a personal trainer cost in NYC?" and 
 
 This is a clear, no-fluff breakdown of personal training prices in Manhattan in 2026, what you actually get at each tier, and how to find quality training that doesn't blow your budget.
 
+*A note on the numbers: the price tiers below are based on what we see running a studio in Midtown and talking to hundreds of prospective clients each year about what they've been quoted elsewhere. They're informed estimates of the Manhattan market, not a published survey, and individual trainers will fall outside them.*
+
 ## The real NYC pricing tiers in 2026
 
 Based on current rates across Manhattan studios, chain gyms, and independent trainers, here's where the market actually sits:
@@ -36,14 +38,14 @@ This is the high end of the market: trainers who work with professional athletes
 A trainer's hourly rate isn't just for the hour they spend with you. Rates reflect:
 
 - **Their certification and experience** — NASM, ACE, NSCA, ACSM, master's degrees, specialty credentials
-- **Studio overhead** — Manhattan rent is brutal, and a private gym in Midtown costs $5,000–15,000/month before utilities
-- **Insurance and licensing** — liability insurance for trainers runs $300–800/year
+- **Studio overhead** — Manhattan rent is brutal, and a small private gym in Midtown can run anywhere from $5,000 to $15,000 a month before utilities, depending on size and block
+- **Insurance and licensing** — liability insurance for trainers typically runs a few hundred dollars a year
 - **Programming time** — a good trainer spends 30+ minutes outside your session writing your program, tracking progress, and adjusting based on results
 - **The brand premium** — Equinox isn't selling personal training; they're selling the Equinox experience around personal training
 
-Roughly half of what you pay an independent trainer covers their actual work. About 25% covers overhead and insurance. The remaining 25% is profit — which is how trainers make a living.
+As a rough illustration from our own experience running a studio: about half of what you pay an independent trainer covers their actual coaching time, roughly a quarter goes to overhead and insurance, and the rest is what the trainer or studio actually keeps. Every business is different, but the proportions are in that ballpark.
 
-If you're paying $150 per session at a chain gym, **the trainer might only be earning $40–60 of that.** This isn't a moral problem — it's just useful context for understanding why independent trainers often deliver better value at the same price point.
+If you're paying $150 per session at a chain gym, **the trainer may be earning only a fraction of it — in our experience often $40–60.** This isn't a moral problem — it's just useful context for understanding why independent trainers often deliver better value at the same price point.
 
 ## The hidden costs nobody mentions in the ad
 
@@ -86,7 +88,7 @@ A few tested strategies:
 
 **4. Compare per-session price honestly.** A $90/session trainer with no membership fee is cheaper than a $70/session trainer that requires a $50/month membership. Always calculate total monthly cost, not just session rate.
 
-**5. Ask about virtual sessions.** Many trainers offer a hybrid: 1–2 in-person sessions per week supplemented by virtual check-ins. Virtual rates are typically 40–60% lower, and for clients who already know proper form, the value is excellent.
+**5. Ask about virtual sessions.** Many trainers offer a hybrid: 1–2 in-person sessions per week supplemented by virtual check-ins. Virtual rates are usually well below in-person rates, and for clients who already know proper form, the value is excellent.
 
 **6. Don't pay for celebrity adjacency.** Trainers will sometimes price themselves up because their studio is in a "famous" zip code or because they've trained one mid-tier celebrity. The certification, experience, and programming quality matter far more than location prestige.
 
@@ -102,7 +104,7 @@ The other side of the coin: not every cheap trainer is a steal. Things to be ske
 
 ## Where BUF fits
 
-For context: at [BUF Personal Training](/) on West 36th Street in Hell's Kitchen, our [rates](/rates/) are $90–$98 per hour for 1-on-1 sessions and $60–$70 per person for semi-private, depending on weekly frequency — every session under $100. No membership fees, no contracts, no upsells. We've trained over 1,000 NYC clients since 2017 with a 5-star Google rating, serving Hell's Kitchen, Hudson Yards, Chelsea, and Midtown.
+For context: at [BUF Personal Training](/) on West 36th Street in Hell's Kitchen, our [rates](/rates/) are $90–$98 per hour for 1-on-1 sessions and $60–$70 per person for semi-private, depending on weekly frequency; additional sessions beyond three per week are $85 for 1-on-1 and $55 per person for semi-private — every session under $100. No membership fees, no contracts, no upsells. We've trained over 1,000 NYC clients since 2017 with a 5-star Google rating, serving Hell's Kitchen, Hudson Yards, Chelsea, and Midtown.
 
 Whether you train with us or someone else: the goal of this post isn't to sell you on BUF. It's to give you enough information to spot a fair deal — wherever you find it.
 
